@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {listNotesAction} from '../../actions/noteAction'
+import {listNotesAction, getNoteByIdAction} from '../../actions/noteAction'
 import NoteCard from '../NoteCard/NoteCard'
 
 import './NoteRepo.css'
@@ -8,18 +8,19 @@ import './NoteRepo.css'
 class NoteRepo extends Component {
 	constructor(props) {
 		super(props)
-		// console.log(props)
+		console.log(props)
 	}
 
 	componentWillMount() {
 		this.props.dispatch(listNotesAction)
+		this.props.dispatch(getNoteByIdAction('5ce65bf6443303d08a534f30'))
 	}
 
 	render() {
 		return (
 			<div className='warp'>
 				{this.props.noteReducer.noteList.map(item => {
-					return <NoteCard title={item.title} description={item.text} key={item._id}/>
+					return <NoteCard title={item.title} description={item.description} id={item._id} key={item._id}/>
 				})}
 			</div>
 		)

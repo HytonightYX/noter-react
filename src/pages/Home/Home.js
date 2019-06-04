@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {Layout, Row, Col, Avatar, Input, Menu, Dropdown, Icon, Badge, Button, message} from 'antd'
 import './Home.css';
 import Cookies from 'universal-cookie';
-import NoteCard from '../../components/NoteCard/NoteCard'
 import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import NoteRepo from '../../components/NoteRepo/NoteRepo'

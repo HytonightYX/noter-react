@@ -1,10 +1,12 @@
 import {
-	LIST_NOTES
+	LIST_NOTES,
+	GET_NOTE_BY_ID
 } from '../constants'
 
 // The initial state
 const initialState = {
-	noteList: []
+	noteList: [],
+	currNote: {}
 };
 
 export const noteReducer = (state = initialState, action) => {
@@ -12,6 +14,10 @@ export const noteReducer = (state = initialState, action) => {
 		case LIST_NOTES:
 			return {
 				...state, noteList: action.payload
+			}
+		case GET_NOTE_BY_ID:
+			return {
+				...state, currNote: action.payload
 			}
 		default:
 			return state

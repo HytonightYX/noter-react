@@ -18,7 +18,7 @@ export async function findAll() {
  */
 export async function findById(id) {
 	return axios({
-		url: `/api/notes/${id}`,
+		url: `http://localhost:3030/api/notes/${id}`,
 		method: 'get',
 	});
 }
@@ -45,6 +45,22 @@ export async function deleteById(id) {
 		method: 'put',
 		data: {
 			del: true
+		}
+	});
+}
+
+/**
+ * 根据id 和 用户修改笔记内容
+ * @param param 封装 id 和 text 的对象
+ * @returns {Promise<AxiosPromise>}
+ */
+export async function updateText(param) {
+	return axios({
+		url: `http://localhost:3030/api/notes`,
+		method: 'patch',
+		data: {
+			id: param.id,
+			text: param.text
 		}
 	});
 }

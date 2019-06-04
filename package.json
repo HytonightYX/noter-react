@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@uiw/react-markdown-editor": "^1.1.8",
     "antd": "^3.16.5",
     "axios": "^0.19.0",
     "babel-plugin-import": "^1.11.0",
     "customize-cra": "^0.2.12",
     "enquire-js": "^0.2.1",
+    "for-editor": "^0.0.13",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
     "rc-scroll-anim": "^2.5.7",

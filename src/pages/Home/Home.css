@@ -1,0 +1,11 @@
+.logo img {
+	width: 120px;
+	margin: 16px 24px 16px 0;
+	float: left;
+}
+
+.welcomeInfo {
+	margin-right: 20px;
+	font-size: 16px;
+}
+

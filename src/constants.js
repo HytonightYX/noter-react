@@ -1,0 +1,1 @@
+export const LIST_NOTES = 'LIST_NOTES'

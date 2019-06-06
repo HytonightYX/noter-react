@@ -23,13 +23,6 @@ export async function postUserLogout() {
 	});
 }
 
-export async function getUserProfile() {
-	return axios('/api/profile');
+export async function getUserProfileById(id) {
+	return axios(`http://localhost:3030/api/users/${id}`);
 }
-
-export default {
-	login,
-	postUserRegister,
-	postUserLogout,
-	getUserProfile,
-};

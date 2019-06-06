@@ -29,7 +29,7 @@ export async function findById(id) {
  */
 export async function addOne(note) {
 	return axios({
-		url: '/api/notes',
+		url: 'http://localhost:3030/api/notes',
 		method: 'post',
 		data: note
 	});
@@ -41,7 +41,7 @@ export async function addOne(note) {
  */
 export async function deleteById(id) {
 	return axios({
-		url: '/api/notes/' + id,
+		url: `http://localhost:3030/api/notes/${id}`,
 		method: 'put',
 		data: {
 			del: true
@@ -64,10 +64,3 @@ export async function updateText(param) {
 		}
 	});
 }
-
-export default {
-	findAll,
-	findById,
-	addOne,
-	deleteById,
-};

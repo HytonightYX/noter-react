@@ -1,21 +1,24 @@
 import {
-
+	LOG_IN,
+	LOG_OUT
 } from '../constants'
 
 // The initial state
 const initialState = {
-	user: {
-		login: 0,
-	}
+	currUser: null
 };
 
 export const userReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case 'GO_LOGIN':
-			return true
-		case 'OUT_LOGIN':
-			return false
+		case LOG_IN:
+			return {
+				...state, currUser: action.payload
+			}
+		case LOG_OUT:
+			return {
+				...state, currUser: null
+			}
 		default:
-			return false
+			return state
 	}
 }

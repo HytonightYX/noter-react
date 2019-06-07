@@ -40,14 +40,14 @@ class TopHeader extends Component {
 								<Dropdown overlay={
 									<Menu>
 										<Menu.Item>
-											<a target="_blank" rel="noopener noreferrer" href="http://www.cnblogs.com/hai-cheng/">个人中心</a>
+											<Link to={'/profile'}>个人中心</Link>
 										</Menu.Item>
 										<Menu.Item onClick={this.handleLogOut}>
 											退出登录
 										</Menu.Item>
 									</Menu>
 								}>
-								<span className="ant-dropdown-link" href={"#"} style={{color:'#fff',cursor:'pointer'}}>
+								<span className="ant-dropdown-link" style={{color:'#fff',cursor:'pointer'}}>
 									{this.props.currUser.username} <Icon type="down" />
 								</span>
 								</Dropdown>
@@ -63,7 +63,6 @@ class TopHeader extends Component {
 	}
 }
 
-// mapStateToProps这个函数允许我们将 store 中的数据作为 props 绑定到组件上。
 function mapStateToProps(state) {
 	return {
 		currUser: state.userReducer.currUser

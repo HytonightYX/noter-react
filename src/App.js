@@ -4,6 +4,8 @@ import {connect} from 'react-redux'
 import Repo from "./pages/Repo/Repo"
 import Login from "./pages/Login/Login"
 import Note from './pages/Note/Note'
+import AddNote from './pages/AddNote/AddNote'
+
 import axios from 'axios'
 
 import { Button, Col, Layout, Menu, Row } from 'antd'
@@ -32,17 +34,19 @@ class App extends Component {
             background: '#fff',
             padding: 24,
             minHeight: '670px',
+            borderRadius: '10px'
           }}>
             <Route exact path={"/login"} component={Login}/>
             <Route exact path={"/"} component={Repo}/>
             <Route exact path={"/note/:id/edit"} component={Note}/>
             <Route exact path={"/profile"} component={Profile}/>
+            <Route exact path={"/addNote"} component={AddNote}/>
           </div>
         </Content>
 
         <Footer style={{ textAlign: 'center' }}>
           2019/06/06 @ Noter-在线笔记共享平台 - gitHub地址：
-          <a href="https://github.com/Hi-Sen/React-Antd-demo-one" >https://github.com/HytonightYX</a>
+          <a href="https://github.com/HytonightYX" >HytonightYX</a>
         </Footer>
 
       </Layout>
@@ -57,6 +61,7 @@ function mapStateToProps(state) {
     userReducer: state.userReducer
   }
 }
+
 export default connect(
   mapStateToProps
 )(App)

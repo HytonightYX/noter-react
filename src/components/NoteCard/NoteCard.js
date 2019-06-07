@@ -26,22 +26,19 @@ export default class NoteCard extends React.Component {
 
 		return (
 			<Card
-				style={{ width: 300,
-				borderRadius: '10px',
-				margin: '5px'}}
-				// cover={
-				// 	<img
-				// 		alt="example"
-				// 		src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-				// 	/>
-				// }
+				className={'card'}
+				style={{
+					minWidth: 300,
+					borderRadius: '10px',
+					margin: '20px 20px'
+				}}
 				actions={[<Link to={'/a'}><Icon type="setting" /></Link>, <Link to={`/note/${this.props.id}/edit`}><Icon type="edit" /></Link>, <Icon type="ellipsis" />]}
 				hoverable={true}
 			>
 				<Meta
 					avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-					title={this.props.title}
-					description={this.props.description}
+					title={this.props.item.title}
+					description={this.props.item.description}
 					onClick={this.handleClick}
 				/>
 			</Card>

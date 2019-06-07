@@ -5179,7 +5179,7 @@ highlight.js@^9.13.1, highlight.js@^9.15.6:
   resolved "https://registry.npm.taobao.org/highlight.js/download/highlight.js-9.15.8.tgz#f344fda123f36f1a65490e932cf90569e4999971"
   integrity sha1-80T9oSPzbxplSQ6TLPkFaeSZmXE=
 
-history@^4.9.0:
+history@^4.9.0, history@latest:
   version "4.9.0"
   resolved "https://registry.npm.taobao.org/history/download/history-4.9.0.tgz#84587c2068039ead8af769e9d6a6860a14fa1bca"
   integrity sha1-hFh8IGgDnq2K92np1qaGChT6G8o=

@@ -7,7 +7,14 @@ import NoteRepo from '../../components/NoteRepo/NoteRepo'
 class Repo extends Component {
 	render() {
 		return (
-			<NoteRepo/>
+			<div style={{
+				padding: '0 auto'
+			}}>
+
+
+
+				<NoteRepo/>
+			</div>
 		)
 	}
 }

@@ -5,16 +5,12 @@ import {
 	Tooltip,
 	Icon,
 	Select,
-	Row,
-	Col,
-	Checkbox,
 	Button,
 	AutoComplete,
 } from 'antd';
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
-
 
 class RegistrationForm extends React.Component {
 	state = {

@@ -1,11 +1,10 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
 import {listNotesAction} from '../../actions/noteAction'
-import NoteCard from '../NoteCard/NoteCard'
-import './NoteRepo.css'
-import AddNoteModal from '../AddNoteModal/AddNoteModal'
+import AddNoteModal from '../../components/AddNoteModal/AddNoteModal'
+import NoteCard from '../../components/NoteCard/NoteCard'
+import {connect} from 'react-redux'
 
-class NoteRepo extends Component {
+class Market extends Component {
 	constructor(props) {
 		super(props)
 		console.log(props)
@@ -13,14 +12,15 @@ class NoteRepo extends Component {
 
 	componentWillMount() {
 		this.props.dispatch(listNotesAction)
+		console.log(this.props)
+		// this.props.dispatch(getNoteByIdAction('5ce65bf6443303d08a534f30'))
 	}
 
 	render() {
 		return (
 			<div className='warp'>
-				<AddNoteModal/>
-				{this.props.noteReducer.usersNoteList.map(item => {
-					return <NoteCard item={item} key={item._id}/>
+				{this.props.noteReducer.noteList.map(item => {
+					return <NoteCard item={item} key={item._id} type={'market'}/>
 				})}
 			</div>
 		)
@@ -37,4 +37,4 @@ function mapStateToProps(state) {
 
 export default connect(
 	mapStateToProps,
-)(NoteRepo)
+)(Market)

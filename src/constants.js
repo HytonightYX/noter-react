@@ -1,4 +1,5 @@
 export const LIST_NOTES = 'LIST_NOTES'
+export const LIST_NOTES_BY_ID = 'LIST_NOTES_BY_ID'
 export const GET_NOTE_BY_ID = 'GET_NOTE_BY_ID'
 export const ADD_NOTE = 'ADD_NOTE'
 

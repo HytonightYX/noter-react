@@ -36,6 +36,18 @@ export async function addOne(note) {
 }
 
 /**
+ * 根据所有者id获取他的所有笔记
+ * @param id
+ * @returns {Promise<AxiosPromise>}
+ */
+export async function findByOwnerId(id) {
+	return axios({
+		url: `http://localhost:3030/api/notes/owner/${id}`,
+		method: 'get'
+	})
+}
+
+/**
  * 删除一篇笔记
  * @returns {Promise<AxiosPromise>}
  */
@@ -60,7 +72,8 @@ export async function updateText(param) {
 		method: 'patch',
 		data: {
 			id: param.id,
-			text: param.text
+			text: param.text,
+			title: param.title
 		}
 	});
 }

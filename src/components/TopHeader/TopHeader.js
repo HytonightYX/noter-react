@@ -26,7 +26,7 @@ class TopHeader extends Component {
 							style={{ lineHeight: '64px' }}
 						>
 							<Menu.Item key="m1"><Link to="/" >仓库</Link></Menu.Item>
-							<Menu.Item key="m2">市场</Menu.Item>
+							<Menu.Item key="m2"><Link to="/market" >市场</Link></Menu.Item>
 							<Menu.Item key="m3"><Link to="/profile" >个人</Link></Menu.Item>
 						</Menu>
 					</Col>

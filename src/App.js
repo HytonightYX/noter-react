@@ -6,13 +6,13 @@ import Login from "./pages/Login/Login"
 import Note from './pages/Note/Note'
 import AddNote from './pages/AddNote/AddNote'
 
-import axios from 'axios'
-
-import { Button, Col, Layout, Menu, Row } from 'antd'
+import { Button, Col, Layout } from 'antd'
 import Profile from './pages/Profile/Profile'
 import Cookies from 'universal-cookie'
 import {loginAction} from './actions/userAction'
 import TopHeader from './components/TopHeader/TopHeader'
+import Market from './pages/Market/Market'
+import {listNoteByIdAction} from './actions/noteAction'
 const { Content, Footer } = Layout;
 
 class App extends Component {
@@ -21,6 +21,7 @@ class App extends Component {
     const id = cookies.get('userid')
   	if (id) {
   	  this.props.dispatch(loginAction(id))
+      this.props.dispatch(listNoteByIdAction(id))
   	}
   }
 
@@ -37,6 +38,7 @@ class App extends Component {
             borderRadius: '10px'
           }}>
             <Route exact path={"/"} component={Repo}/>
+            <Route exact path={"/market"} component={Market}/>
             <Route exact path={"/login"} component={Login}/>
             <Route exact path={"/note/:id/edit"} component={Note}/>
             <Route exact path={"/profile"} component={Profile}/>

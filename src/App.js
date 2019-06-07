@@ -4,8 +4,7 @@ import {connect} from 'react-redux'
 import Repo from "./pages/Repo/Repo"
 import Login from "./pages/Login/Login"
 import Note from './pages/Note/Note'
-import AddNote from './pages/AddNote/AddNote'
-
+import NoteView from './pages/NoteView/NoteView'
 import { Button, Col, Layout } from 'antd'
 import Profile from './pages/Profile/Profile'
 import Cookies from 'universal-cookie'
@@ -41,8 +40,8 @@ class App extends Component {
             <Route exact path={"/market"} component={Market}/>
             <Route exact path={"/login"} component={Login}/>
             <Route exact path={"/note/:id/edit"} component={Note}/>
+            <Route exact path={"/note/:id/view"} component={NoteView}/>
             <Route exact path={"/profile"} component={Profile}/>
-            <Route exact path={"/addNote"} component={AddNote}/>
           </div>
         </Content>
 

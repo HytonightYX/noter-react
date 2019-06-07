@@ -9433,7 +9433,7 @@ react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
   resolved "https://registry.npm.taobao.org/react-lifecycles-compat/download/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha1-TxonOv38jzSIqMUWv9p4+HI1I2I=
 
-react-markdown@^4.0.6:
+react-markdown@^4.0.6, react-markdown@^4.0.8:
   version "4.0.8"
   resolved "https://registry.npm.taobao.org/react-markdown/download/react-markdown-4.0.8.tgz#e3621b5becaac82a651008d7bc8390d3e4e438c0"
   integrity sha1-42IbW+yqyCplEAjXvIOQ0+TkOMA=

@@ -5,10 +5,12 @@ import { Link } from 'react-router-dom'
 import {getUserProfileById} from '../../api/user'
 import './NoteCard.css'
 import {deleteById} from '../../api/note'
+import {listNoteByIdAction} from '../../actions/noteAction'
+import {connect} from 'react-redux'
 
 const { Meta } = Card;
 
-export default class NoteCard extends React.Component {
+class NoteCard extends React.Component {
 	state = {
 		loading: true,
 		owner: {}
@@ -27,7 +29,7 @@ export default class NoteCard extends React.Component {
 	handleDelete = () => {
 		deleteById(this.props.item._id)
 			.then(() => {
-				console.log('删除成功')
+				this.props.dispatch(listNoteByIdAction(this.state.owner._id))
 			})
 	}
 
@@ -78,3 +80,5 @@ export default class NoteCard extends React.Component {
 		);
 	}
 }
+
+export default connect()(NoteCard)

@@ -36,8 +36,8 @@ class App extends Component {
             minHeight: '670px',
             borderRadius: '10px'
           }}>
-            <Route exact path={"/login"} component={Login}/>
             <Route exact path={"/"} component={Repo}/>
+            <Route exact path={"/login"} component={Login}/>
             <Route exact path={"/note/:id/edit"} component={Note}/>
             <Route exact path={"/profile"} component={Profile}/>
             <Route exact path={"/addNote"} component={AddNote}/>

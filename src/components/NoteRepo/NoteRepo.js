@@ -3,8 +3,7 @@ import {connect} from 'react-redux'
 import {listNotesAction, getNoteByIdAction} from '../../actions/noteAction'
 import NoteCard from '../NoteCard/NoteCard'
 import './NoteRepo.css'
-import {Card} from 'antd'
-import {Link} from 'react-router-dom'
+import AddNoteModal from '../AddNoteModal/AddNoteModal'
 
 class NoteRepo extends Component {
 	constructor(props) {
@@ -20,14 +19,7 @@ class NoteRepo extends Component {
 	render() {
 		return (
 			<div className='warp'>
-				<Link to={'/addNote'}>
-					<button
-						className={'pre-card'}
-					>
-						新增笔记
-					</button>
-				</Link>
-
+				<AddNoteModal/>
 				{this.props.noteReducer.noteList.map(item => {
 					return <NoteCard item={item} key={item._id}/>
 				})}

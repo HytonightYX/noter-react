@@ -56,14 +56,3 @@ class Note extends React.Component {
 }
 
 export default Note
-
-
-// <MarkdownEditor
-// options={{
-// 	autofocus: true,
-// 		showCursorWhenSelecting: true,
-// }}
-// height={500}
-// value={this.state.markdown}
-// onChange={this.updateMarkdown}
-// />

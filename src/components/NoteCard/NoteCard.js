@@ -32,7 +32,7 @@ export default class NoteCard extends React.Component {
 					borderRadius: '10px',
 					margin: '20px 20px'
 				}}
-				actions={[<Link to={'/a'}><Icon type="setting" /></Link>, <Link to={`/note/${this.props.id}/edit`}><Icon type="edit" /></Link>, <Icon type="ellipsis" />]}
+				actions={[<Link to={'/a'}><Icon type="setting" /></Link>, <Link to={`/note/${this.props.item._id}/edit`}><Icon type="edit" /></Link>, <Icon type="ellipsis" />]}
 				hoverable={true}
 			>
 				<Meta

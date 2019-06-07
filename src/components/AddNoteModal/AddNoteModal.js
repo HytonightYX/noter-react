@@ -1,0 +1,112 @@
+import React from "react"
+import {addOne} from '../../api/note'
+import { Modal, Form, Input, Radio } from 'antd';
+import {connect} from 'react-redux'
+
+const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
+	// eslint-disable-next-line
+	class extends React.Component {
+		render() {
+			const { visible, onCancel, onCreate, form } = this.props;
+			const { getFieldDecorator } = form;
+			return (
+				<Modal
+					visible={visible}
+					title="新建笔记"
+					okText="Create"
+					onCancel={onCancel}
+					onOk={onCreate}
+				>
+					<Form layout="vertical">
+						<Form.Item label="笔记标题">
+							{getFieldDecorator('title', {
+								rules: [{ required: true, message: '请输入笔记的标题!' }],
+							})(<Input />)}
+						</Form.Item>
+						<Form.Item label="简介">
+							{getFieldDecorator('description')(<Input type="textarea" />)}
+						</Form.Item>
+						<Form.Item className="collection-create-form_last-form-item">
+							{getFieldDecorator('modifier', {
+								initialValue: 'public',
+							})(
+								<Radio.Group>
+									<Radio value="public">私有</Radio>
+									<Radio value="private">分享到市场</Radio>
+								</Radio.Group>,
+							)}
+						</Form.Item>
+					</Form>
+				</Modal>
+			);
+		}
+	},
+);
+
+class AddNoteModal extends React.Component {
+	state = {
+		visible: false,
+	};
+
+	showModal = () => {
+		this.setState({ visible: true });
+	};
+
+	handleCancel = () => {
+		this.setState({ visible: false });
+	};
+
+	handleCreate = () => {
+		const form = this.formRef.props.form;
+		form.validateFields((err, values) => {
+			if (err) {
+				return;
+			}
+			const newNote = {
+				title: values.title,
+				description: values.description,
+				owner: this.props.currUser._id
+			}
+			console.log('新建笔记信息: ', newNote);
+			addOne(newNote)
+				.then(() => {
+					form.resetFields();
+					this.setState({ visible: false });
+				})
+		});
+	};
+
+	saveFormRef = formRef => {
+		this.formRef = formRef;
+	};
+
+	render() {
+		return (
+			<div>
+				<button
+					className={'pre-card'}
+					onClick={this.showModal}
+				>
+					➕ 新增笔记
+				</button>
+
+				<CollectionCreateForm
+					wrappedComponentRef={this.saveFormRef}
+					visible={this.state.visible}
+					onCancel={this.handleCancel}
+					onCreate={this.handleCreate}
+				/>
+			</div>
+		);
+	}
+}
+
+function mapStateToProps(state) {
+	return {
+		currUser: state.userReducer.currUser
+	}
+}
+
+export default connect(
+	mapStateToProps,
+)(AddNoteModal)

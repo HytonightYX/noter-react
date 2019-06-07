@@ -10,9 +10,6 @@ class Repo extends Component {
 			<div style={{
 				padding: '0 auto'
 			}}>
-
-
-
 				<NoteRepo/>
 			</div>
 		)

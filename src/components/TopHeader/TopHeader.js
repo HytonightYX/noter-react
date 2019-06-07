@@ -25,8 +25,8 @@ class TopHeader extends Component {
 							defaultSelectedKeys={['m1']}
 							style={{ lineHeight: '64px' }}
 						>
-							<Menu.Item key="m1"><Link to="/" >仓库</Link></Menu.Item>
-							<Menu.Item key="m2"><Link to="/market" >市场</Link></Menu.Item>
+							<Menu.Item key="m1"><Link to="/market" >笔记市场</Link></Menu.Item>
+							<Menu.Item key="m2"><Link to="/" >笔记仓库</Link></Menu.Item>
 							<Menu.Item key="m3"><Link to="/profile" >个人</Link></Menu.Item>
 						</Menu>
 					</Col>

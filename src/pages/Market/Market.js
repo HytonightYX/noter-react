@@ -1,6 +1,4 @@
 import React, {Component} from 'react'
-import {listNotesAction} from '../../actions/noteAction'
-import AddNoteModal from '../../components/AddNoteModal/AddNoteModal'
 import NoteCard from '../../components/NoteCard/NoteCard'
 import {connect} from 'react-redux'
 
@@ -11,9 +9,7 @@ class Market extends Component {
 	}
 
 	componentWillMount() {
-		this.props.dispatch(listNotesAction)
 		console.log(this.props)
-		// this.props.dispatch(getNoteByIdAction('5ce65bf6443303d08a534f30'))
 	}
 
 	render() {

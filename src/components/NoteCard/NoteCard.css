@@ -1,9 +1,24 @@
-.card {
-	width: 350px;
-	border: 1px solid gray;
-	box-shadow: 1px 1px 3px #888;
-	border-top: 10px solid green;
-	min-height: 250px;
-	padding-: 10px;
-	margin: 10px;
+
+.m-card .ant-card-body .ant-card-meta {
+	min-height: 70px;
 }
+/*.m-card .ant-card-body .ant-card-meta*/
+.m-card .ant-card-body .ant-card-meta .ant-card-meta-detail .ant-card-meta-title
+{
+	width: 202px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.m-card .ant-card-body .ant-card-meta .ant-card-meta-detail .ant-card-meta-description
+{
+	width: 202px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-clamp: 2;
+	min-height: 40px;
+	max-height: 40px;
+}
+
+

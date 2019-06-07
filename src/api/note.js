@@ -54,7 +54,7 @@ export async function findByOwnerId(id) {
 export async function deleteById(id) {
 	return axios({
 		url: `http://localhost:3030/api/notes/${id}`,
-		method: 'put',
+		method: 'delete',
 		data: {
 			del: true
 		}

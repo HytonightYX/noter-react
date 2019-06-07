@@ -1,13 +1,16 @@
-import { Card, Icon, Avatar } from 'antd';
+import {Card, Icon, Avatar, Skeleton} from 'antd'
 import React from "react"
 
 import { Link } from 'react-router-dom'
 import {getUserProfileById} from '../../api/user'
+import './NoteCard.css'
+import {deleteById} from '../../api/note'
+
 const { Meta } = Card;
 
 export default class NoteCard extends React.Component {
 	state = {
-		loading: false,
+		loading: true,
 		owner: {}
 	};
 
@@ -15,8 +18,16 @@ export default class NoteCard extends React.Component {
 		getUserProfileById(this.props.item.owner)
 			.then((res) => {
 				this.setState({
-					owner: res.data
+					owner: res.data,
+					loading: false
 				})
+			})
+	}
+
+	handleDelete = () => {
+		deleteById(this.props.item._id)
+			.then(() => {
+				console.log('删除成功')
 			})
 	}
 
@@ -29,7 +40,7 @@ export default class NoteCard extends React.Component {
 				[
 					<Link to={'/a'}><Icon type="setting" /></Link>,
 					<Link to={`/note/${this.props.item._id}/edit`}><Icon type="edit" /></Link>,
-					<Icon type="ellipsis" />
+					<Icon type="delete" onClick={this.handleDelete} />
 				]
 	)
 
@@ -46,7 +57,7 @@ export default class NoteCard extends React.Component {
 
 		return (
 			<Card
-				className={'card'}
+				className={'m-card'}
 				style={{
 					minWidth: 300,
 					borderRadius: '10px',
@@ -55,12 +66,14 @@ export default class NoteCard extends React.Component {
 				actions={this.actionList}
 				hoverable={true}
 			>
+				<Skeleton loading={loading} avatar active>
 				<Meta
 					avatar={<Avatar src={this.state.owner.avatar_url} />}
 					title={this.props.item.title}
 					description={this.props.item.description}
 					onClick={this.handleClick}
 				/>
+				</Skeleton>
 			</Card>
 		);
 	}

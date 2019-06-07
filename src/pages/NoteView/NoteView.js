@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {findById} from '../../api/note'
-const ReactMarkdown = require('react-markdown')
+const ReactMarkdown = require('react-markdown/with-html')
 
 class NoteView extends Component {
 
@@ -23,7 +23,10 @@ class NoteView extends Component {
 	render() {
 		return (
 			<div>
-				<ReactMarkdown source={this.state.markdown} />
+				<ReactMarkdown
+					source={this.state.markdown}
+					escapeHtml={false}
+				/>
 			</div>
 		)
 	}

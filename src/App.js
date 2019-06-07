@@ -11,7 +11,7 @@ import Cookies from 'universal-cookie'
 import {loginAction} from './actions/userAction'
 import TopHeader from './components/TopHeader/TopHeader'
 import Market from './pages/Market/Market'
-import {listNoteByIdAction} from './actions/noteAction'
+import {listNoteByIdAction, listNotesAction} from './actions/noteAction'
 const { Content, Footer } = Layout;
 
 class App extends Component {
@@ -22,6 +22,7 @@ class App extends Component {
   	  this.props.dispatch(loginAction(id))
       this.props.dispatch(listNoteByIdAction(id))
   	}
+    this.props.dispatch(listNotesAction)
   }
 
   render() {

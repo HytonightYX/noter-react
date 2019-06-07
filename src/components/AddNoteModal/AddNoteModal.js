@@ -1,10 +1,11 @@
 import React from "react"
 import {addOne} from '../../api/note'
-import { Modal, Form, Input, Radio } from 'antd';
+import {Modal, Form, Input, Radio} from 'antd'
 import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
+import {listNotesAction} from '../../actions/noteAction'
 
 const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
-	// eslint-disable-next-line
 	class extends React.Component {
 		render() {
 			const { visible, onCancel, onCreate, form } = this.props;
@@ -45,7 +46,7 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
 
 class AddNoteModal extends React.Component {
 	state = {
-		visible: false,
+		visible: false
 	};
 
 	showModal = () => {
@@ -64,14 +65,19 @@ class AddNoteModal extends React.Component {
 			}
 			const newNote = {
 				title: values.title,
-				description: values.description,
+				description: values.description === '' ? ' ' : values.description,
 				owner: this.props.currUser._id
 			}
-			console.log('新建笔记信息: ', newNote);
+
 			addOne(newNote)
 				.then(() => {
 					form.resetFields();
-					this.setState({ visible: false });
+					console.log('添加成功了啊')
+					this.props.reRender()
+					this.setState({
+						loading: false,
+						visible: false
+					})
 				})
 		});
 	};
@@ -85,9 +91,12 @@ class AddNoteModal extends React.Component {
 			<div>
 				<button
 					className={'pre-card'}
+					style={{
+						height: 164
+					}}
 					onClick={this.showModal}
 				>
-					➕ 新增笔记
+					<span role={'img'} aria-label={'plus'}>➕ </span>新增笔记
 				</button>
 
 				<CollectionCreateForm
@@ -103,7 +112,8 @@ class AddNoteModal extends React.Component {
 
 function mapStateToProps(state) {
 	return {
-		currUser: state.userReducer.currUser
+		currUser: state.userReducer.currUser,
+		noteReducer: state.noteReducer
 	}
 }
 

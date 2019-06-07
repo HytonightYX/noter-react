@@ -11,14 +11,17 @@ class NoteRepo extends Component {
 		console.log(props)
 	}
 
-	componentWillMount() {
+	reRender = () => {
 		this.props.dispatch(listNotesAction)
 	}
 
 	render() {
 		return (
 			<div className='warp'>
-				<AddNoteModal/>
+				{this.props.userReducer.currUser ?
+					<AddNoteModal reRender={this.reRender} />
+					:
+					'请先登录'}
 				{this.props.noteReducer.usersNoteList.map(item => {
 					return <NoteCard item={item} key={item._id}/>
 				})}

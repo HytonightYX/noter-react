@@ -1,4 +1,4 @@
-import {Card, Icon, Avatar, Skeleton, Tooltip} from 'antd'
+import {Card, Icon, Avatar, Skeleton, Tooltip, message} from 'antd'
 import React from "react"
 
 import { Link } from 'react-router-dom'
@@ -30,6 +30,7 @@ class NoteCard extends React.Component {
 		deleteById(this.props.item._id)
 			.then(() => {
 				this.props.dispatch(listNoteByIdAction(this.state.owner._id))
+				message.warning('删除笔记成功', 1);
 			})
 	}
 

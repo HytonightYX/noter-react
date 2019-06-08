@@ -1,6 +1,6 @@
 import React from "react"
 import {addOne} from '../../api/note'
-import {Modal, Form, Input, Radio} from 'antd'
+import {Modal, Form, Input, Radio, message} from 'antd'
 import {connect} from 'react-redux'
 
 const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
@@ -71,10 +71,14 @@ class AddNoteModal extends React.Component {
 				.then(() => {
 					form.resetFields();
 					this.props.reRender()
+					message.success('添加笔记成功');
 					this.setState({
 						loading: false,
 						visible: false
 					})
+				})
+				.catch(() => {
+					message.error('添加笔记失败,请检查网络连接');
 				})
 		});
 	};

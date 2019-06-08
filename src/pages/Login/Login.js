@@ -15,9 +15,6 @@ class NormalLoginForm extends React.Component {
 		login: false,
 	}
 
-	componentWillMount() {
-	}
-
 	render() {
 		if ( this.state.login ) {
 			// 跳转主页

@@ -1,5 +1,5 @@
 import { findAll, findById, findByOwnerId } from '../api/note'
-import {LIST_NOTES, GET_NOTE_BY_ID, ADD_NOTE, LIST_NOTES_BY_ID} from '../constants'
+import {LIST_NOTES, GET_NOTE_BY_ID, LIST_NOTES_BY_ID, CLEAN_USER_NOTES} from '../constants'
 
 export const listNotesAction = async (dispatch) => {
 	const res = await findAll()
@@ -14,6 +14,12 @@ export const listNoteByIdAction = (id) => async (dispatch) => {
 	dispatch({
 		type: LIST_NOTES_BY_ID,
 		payload: res.data.reverse()
+	})
+}
+
+export const cleanNotesdAction = async (dispatch) => {
+	dispatch({
+		type: CLEAN_USER_NOTES,
 	})
 }
 

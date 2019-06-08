@@ -2,7 +2,8 @@ import { findById, updateText } from '../../api/note'
 import React from 'react';
 import './Note.css'
 import Editor from 'for-editor'
-import {Button, Input} from 'antd'
+import {Button, message} from 'antd'
+import history from '../../history'
 
 class Note extends React.Component {
 	constructor(props) {
@@ -31,6 +32,10 @@ class Note extends React.Component {
 		}
 		console.log(param)
 		updateText(param)
+			.then(() => {
+				history.goBack();
+				message.success('修改成功', 1)
+			})
 			.catch((err) => {
 				console.log(err)
 			})

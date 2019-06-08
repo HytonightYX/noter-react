@@ -18,7 +18,7 @@ class App extends Component {
   componentWillMount() {
   	const cookies = new Cookies()
     const id = cookies.get('userid')
-  	if (id !== 'null') {
+  	if ( id && id !== 'null') {
   	  // console.log(typeof id)
       message.success('登录成功');
   	  this.props.dispatch(loginAction(id))

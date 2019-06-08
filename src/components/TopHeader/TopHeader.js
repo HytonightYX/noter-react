@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Avatar, Button, Dropdown, Icon, Layout, Menu} from 'antd'
+import {Avatar, Button, Dropdown, Icon, Layout, Menu, message} from 'antd'
 import {Link} from 'react-router-dom'
 import {logoutAction} from '../../actions/userAction'
 import Cookie from 'universal-cookie'
@@ -12,6 +12,7 @@ class TopHeader extends Component {
 		const cookie = new Cookie()
 		cookie.set('userid', null)
 		this.props.dispatch(logoutAction)
+		message.success('登出成功');
 	}
 
 	render() {

@@ -5,7 +5,7 @@ import Repo from "./pages/Repo/Repo"
 import Login from "./pages/Login/Login"
 import Note from './pages/Note/Note'
 import NoteView from './pages/NoteView/NoteView'
-import { Button, Col, Layout } from 'antd'
+import {Button, Col, Layout, message} from 'antd'
 import Profile from './pages/Profile/Profile'
 import Cookies from 'universal-cookie'
 import {loginAction} from './actions/userAction'
@@ -18,7 +18,9 @@ class App extends Component {
   componentWillMount() {
   	const cookies = new Cookies()
     const id = cookies.get('userid')
-  	if (id) {
+  	if (id !== 'null') {
+  	  // console.log(typeof id)
+      message.success('登录成功');
   	  this.props.dispatch(loginAction(id))
       this.props.dispatch(listNoteByIdAction(id))
   	}

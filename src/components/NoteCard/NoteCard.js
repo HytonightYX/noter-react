@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import {getUserProfileById} from '../../api/user'
 import './NoteCard.css'
 import {deleteById} from '../../api/note'
-import {listNoteByIdAction} from '../../actions/noteAction'
+import {listNoteByIdAction, listNotesAction} from '../../actions/noteAction'
 import {connect} from 'react-redux'
 
 const { Meta } = Card;
@@ -30,6 +30,7 @@ class NoteCard extends React.Component {
 		deleteById(this.props.item._id)
 			.then(() => {
 				this.props.dispatch(listNoteByIdAction(this.state.owner._id))
+				this.props.dispatch(listNotesAction)
 				message.warning('删除笔记成功', 1);
 			})
 	}

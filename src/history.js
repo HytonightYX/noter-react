@@ -1,3 +1,5 @@
 const createHistory = require("history").createBrowserHistory
 
-export default createHistory()
+export default createHistory({
+	basename: 'noter'
+})

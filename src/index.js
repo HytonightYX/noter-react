@@ -8,7 +8,7 @@ import {Router} from 'react-router-dom'
 
 ReactDOM.render(
 	<Provider store={store}>
-		<Router history={history}>
+		<Router history={history} base>
 			<App />
 		</Router>
 	</Provider>,

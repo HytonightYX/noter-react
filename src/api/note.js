@@ -13,7 +13,7 @@ export async function findAll() {
 
 /**
  * 根据id获取一篇笔记
- * @param id
+ * @param id 笔记id
  * @returns {Promise<AxiosPromise>}
  */
 export async function findById(id) {
@@ -25,6 +25,7 @@ export async function findById(id) {
 
 /**
  * 添加一篇笔记
+ * @param note 新笔记
  * @returns {Promise<AxiosPromise>}
  */
 export async function addOne(note) {
@@ -49,6 +50,7 @@ export async function findByOwnerId(id) {
 
 /**
  * 删除一篇笔记
+ * @param id 待删除笔记id
  * @returns {Promise<AxiosPromise>}
  */
 export async function deleteById(id) {

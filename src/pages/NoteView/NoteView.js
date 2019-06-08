@@ -12,7 +12,6 @@ class NoteView extends Component {
 	componentWillMount() {
 		findById(this.props.match.params.id)
 			.then((note) => {
-				console.log(note)
 				this.setState({
 					markdown: note.data.text,
 					title: note.data.title

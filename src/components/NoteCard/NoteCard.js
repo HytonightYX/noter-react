@@ -73,10 +73,6 @@ class NoteCard extends React.Component {
 		this.setState({ loading: !checked });
 	};
 
-	handleClick = () => {
-		console.log('点击了某卡片')
-	}
-
 	render() {
 		const { loading } = this.state;
 

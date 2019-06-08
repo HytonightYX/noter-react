@@ -14,7 +14,6 @@ class RegistrationForm extends React.Component {
 		e.preventDefault();
 		this.props.form.validateFieldsAndScroll((err, values) => {
 			if (!err) {
-				console.log(this.props.currUser)
 				this.props.dispatch(updateUserAction({
 					_id: this.props.currUser._id,
 					username: values.username,
@@ -27,7 +26,6 @@ class RegistrationForm extends React.Component {
 					.catch(err => {
 						message.error('更新失败', 1)
 					})
-				console.log('Received values of form: ', values);
 			}
 		});
 	};

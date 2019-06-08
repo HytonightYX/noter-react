@@ -25,7 +25,6 @@ export const cleanNotesdAction = async (dispatch) => {
 
 export const getNoteByIdAction = (id) => async (dispatch) => {
 	const res = await findById(id)
-	console.log(res)
 	dispatch({
 		type: GET_NOTE_BY_ID,
 		payload: res.data

@@ -5,10 +5,10 @@ import NoteCard from '../NoteCard/NoteCard'
 import './NoteRepo.css'
 import AddNoteModal from '../AddNoteModal/AddNoteModal'
 
+const lgImg = require('../../assets/login.jpg')
 class NoteRepo extends Component {
 	constructor(props) {
 		super(props)
-		console.log(props)
 	}
 
 	reRender = () => {
@@ -22,7 +22,7 @@ class NoteRepo extends Component {
 				{this.props.userReducer.currUser ?
 					<AddNoteModal reRender={this.reRender} />
 					:
-					'请先登录'}
+					<img src={lgImg} alt=""/>}
 				{this.props.noteReducer.usersNoteList.map(item => {
 					return <NoteCard item={item} key={item._id}/>
 				})}

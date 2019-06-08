@@ -1,20 +1,27 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import WrappedRegistrationForm from '../../components/WarppedRegistrationForm/WarppedRegistrationForm'
-
-const Profile = () => (
+const lgImg = require('../../assets/login.jpg')
+const Profile = (props) => (
 	<div style={{
 		width: '500px',
-		margin: '20px auto'
+		margin: '0 auto',
+		textAlign: 'center'
 	}}>
-		<WrappedRegistrationForm/>
+		{props.userReducer.currUser ?
+			<WrappedRegistrationForm/>
+		:
+			<img src={lgImg} alt=""/>}
 	</div>
 )
 
 function mapStateToProps(state) {
 	return {
-		currUser: state.userReducer.currUser
+		noteReducer: state.noteReducer,
+		userReducer: state.userReducer
 	}
 }
 
-export default connect(mapStateToProps)(Profile)
+export default connect(
+	mapStateToProps,
+)(Profile)

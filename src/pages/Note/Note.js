@@ -30,7 +30,6 @@ class Note extends React.Component {
 			text: this.state.markdown,
 			title: this.state.title
 		}
-		console.log(param)
 		updateText(param)
 			.then(() => {
 				history.goBack();
@@ -50,8 +49,6 @@ class Note extends React.Component {
 	changeTitle = (e) => {
 		this.setState({
 			title: e.target.value
-		}, () => {
-			console.log(this.state.title)
 		})
 	}
 

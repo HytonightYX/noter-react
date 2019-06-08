@@ -5,11 +5,6 @@ import {connect} from 'react-redux'
 class Market extends Component {
 	constructor(props) {
 		super(props)
-		console.log(props)
-	}
-
-	componentWillMount() {
-		console.log(this.props)
 	}
 
 	render() {

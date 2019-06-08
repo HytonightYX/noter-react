@@ -2,8 +2,6 @@ import React from "react"
 import {addOne} from '../../api/note'
 import {Modal, Form, Input, Radio} from 'antd'
 import {connect} from 'react-redux'
-import {Redirect} from 'react-router-dom'
-import {listNotesAction} from '../../actions/noteAction'
 
 const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
 	class extends React.Component {
@@ -72,7 +70,6 @@ class AddNoteModal extends React.Component {
 			addOne(newNote)
 				.then(() => {
 					form.resetFields();
-					console.log('添加成功了啊')
 					this.props.reRender()
 					this.setState({
 						loading: false,

@@ -22,7 +22,10 @@ class NoteView extends Component {
 
 	render() {
 		return (
-			<div>
+			<div style={{
+				width: 800,
+				margin: '0 auto'
+			}}>
 				<ReactMarkdown
 					source={this.state.markdown}
 					escapeHtml={false}

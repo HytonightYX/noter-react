@@ -4,13 +4,8 @@ import {
 	Input,
 	Tooltip,
 	Icon,
-	Select,
 	Button,
-	AutoComplete,
 } from 'antd';
-
-const { Option } = Select;
-const AutoCompleteOption = AutoComplete.Option;
 
 class RegistrationForm extends React.Component {
 	state = {
@@ -27,41 +22,8 @@ class RegistrationForm extends React.Component {
 		});
 	};
 
-	handleConfirmBlur = e => {
-		const value = e.target.value;
-		this.setState({ confirmDirty: this.state.confirmDirty || !!value });
-	};
-
-	compareToFirstPassword = (rule, value, callback) => {
-		const form = this.props.form;
-		if (value && value !== form.getFieldValue('password')) {
-			callback('Two passwords that you enter is inconsistent!');
-		} else {
-			callback();
-		}
-	};
-
-	validateToNextPassword = (rule, value, callback) => {
-		const form = this.props.form;
-		if (value && this.state.confirmDirty) {
-			form.validateFields(['confirm'], { force: true });
-		}
-		callback();
-	};
-
-	handleWebsiteChange = value => {
-		let autoCompleteResult;
-		if (!value) {
-			autoCompleteResult = [];
-		} else {
-			autoCompleteResult = ['.com', '.org', '.net'].map(domain => `${value}${domain}`);
-		}
-		this.setState({ autoCompleteResult });
-	};
-
 	render() {
 		const { getFieldDecorator } = this.props.form;
-		const { autoCompleteResult } = this.state;
 
 		const formItemLayout = {
 			labelCol: {
@@ -85,10 +47,6 @@ class RegistrationForm extends React.Component {
 				},
 			},
 		};
-
-		const websiteOptions = autoCompleteResult.map(website => (
-			<AutoCompleteOption key={website}>{website}</AutoCompleteOption>
-		));
 
 		return (
 			<Form {...formItemLayout} onSubmit={this.handleSubmit}>
@@ -135,23 +93,10 @@ class RegistrationForm extends React.Component {
 						rules: [{ required: true, message: 'Please input your nickname!', whitespace: true }],
 					})(<Input />)}
 				</Form.Item>
-				<Form.Item label="Website">
-					{getFieldDecorator('website', {
-						rules: [{ required: true, message: 'Please input website!' }],
-					})(
-						<AutoComplete
-							dataSource={websiteOptions}
-							onChange={this.handleWebsiteChange}
-							placeholder="website"
-						>
-							<Input />
-						</AutoComplete>,
-					)}
-				</Form.Item>
 
 				<Form.Item {...tailFormItemLayout}>
 					<Button type="primary" htmlType="submit">
-						Register
+						确认更新
 					</Button>
 				</Form.Item>
 			</Form>
@@ -169,4 +114,5 @@ const Profile = () => (
 		<WrappedRegistrationForm/>
 	</div>
 )
+
 export default Profile

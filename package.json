@@ -14,6 +14,8 @@
     "history": "latest",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
+    "markdown-it": "^8.4.2",
+    "markdown-it-react-component": "^0.4.1-rc.5",
     "rc-scroll-anim": "^2.5.7",
     "rc-tween-one": "^2.4.1",
     "react": "^16.8.6",
@@ -25,6 +27,7 @@
     "react-scripts": "3.0.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
+    "tocbot": "^4.6.0",
     "universal-cookie": "^3.1.0"
   },
   "scripts": {

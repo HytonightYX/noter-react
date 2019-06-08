@@ -14,9 +14,9 @@ const initialState = {
 export const noteReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case LIST_NOTES:
-			return Object.assign({}, state, {
-				noteList: action.payload
-			})
+			return {
+				...state, noteList: action.payload
+			}
 		case GET_NOTE_BY_ID:
 			return {
 				...state, currNote: action.payload

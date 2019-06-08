@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import { listNoteByIdAction } from '../../actions/noteAction'
+import { listNotesAction ,listNoteByIdAction } from '../../actions/noteAction'
 import NoteCard from '../NoteCard/NoteCard'
 import './NoteRepo.css'
 import AddNoteModal from '../AddNoteModal/AddNoteModal'
@@ -13,6 +13,7 @@ class NoteRepo extends Component {
 
 	reRender = () => {
 		this.props.dispatch(listNoteByIdAction(this.props.userReducer.currUser._id))
+		this.props.dispatch(listNotesAction)
 	}
 
 	render() {

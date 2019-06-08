@@ -40,7 +40,7 @@ class NoteCard extends React.Component {
 				]
 			:
 				[
-					<Link to={'/a'}><Icon type="setting" /></Link>,
+					<Link to={`/note/${this.props.item._id}/view`}><Icon type="eye"/></Link>,
 					<Link to={`/note/${this.props.item._id}/edit`}><Icon type="edit" /></Link>,
 					<Icon type="delete" onClick={this.handleDelete} />
 				]

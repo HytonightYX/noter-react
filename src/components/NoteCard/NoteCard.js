@@ -1,4 +1,4 @@
-import {Card, Icon, Avatar, Skeleton} from 'antd'
+import {Card, Icon, Avatar, Skeleton, Tooltip} from 'antd'
 import React from "react"
 
 import { Link } from 'react-router-dom'
@@ -35,14 +35,35 @@ class NoteCard extends React.Component {
 
 	actionList = ( this.props.type === 'market' ?
 				[
-					<Link to={`/note/${this.props.item._id}/view`}><Icon type="eye"/></Link>,
-					<Icon type="like"/>
+					<Tooltip placement="top" title={
+						<span>查看笔记</span>
+					}>
+						<Link to={`/note/${this.props.item._id}/view`}><Icon type="eye"/></Link>
+					</Tooltip>,
+					<Tooltip placement="top" title={
+						<span>点赞</span>
+					}>
+						<Icon type="like"/>
+					</Tooltip>
+
 				]
 			:
 				[
-					<Link to={`/note/${this.props.item._id}/view`}><Icon type="eye"/></Link>,
-					<Link to={`/note/${this.props.item._id}/edit`}><Icon type="edit" /></Link>,
-					<Icon type="delete" onClick={this.handleDelete} />
+					<Tooltip placement="top" title={
+						<span>查看笔记</span>
+					}>
+						<Link to={`/note/${this.props.item._id}/view`}><Icon type="eye"/></Link>
+					</Tooltip>,
+					<Tooltip placement="top" title={
+						<span>编辑笔记</span>
+					}>
+						<Link to={`/note/${this.props.item._id}/edit`}><Icon type="edit" /></Link>
+					</Tooltip>,
+					<Tooltip placement="top" title={
+						<span>删除笔记</span>
+					}>
+						<Icon type="delete" onClick={this.handleDelete} />
+					</Tooltip>
 				]
 	)
 

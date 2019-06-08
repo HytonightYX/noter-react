@@ -5,7 +5,7 @@ import Repo from "./pages/Repo/Repo"
 import Login from "./pages/Login/Login"
 import Note from './pages/Note/Note'
 import NoteView from './pages/NoteView/NoteView'
-import {Button, Col, Layout, message} from 'antd'
+import {Layout, message} from 'antd'
 import Profile from './pages/Profile/Profile'
 import Cookies from 'universal-cookie'
 import {loginAction} from './actions/userAction'

@@ -67,7 +67,8 @@ class Note extends React.Component {
 						outline: 'none',
 						fontSize: 25,
 						marginBottom: 10,
-						color: '#00000'
+						color: '#00000',
+						width: '80%'
 					}}
 					onChange={this.changeTitle}
 				/>

@@ -1,6 +1,7 @@
 import {
 	LOG_IN,
-	LOG_OUT
+	LOG_OUT,
+	UPDATE_USER
 } from '../constants'
 
 // The initial state
@@ -17,6 +18,10 @@ export const userReducer = (state = initialState, action) => {
 		case LOG_OUT:
 			return {
 				...state, currUser: null
+			}
+		case UPDATE_USER:
+			return {
+				...state, currUser: action.payload
 			}
 		default:
 			return state

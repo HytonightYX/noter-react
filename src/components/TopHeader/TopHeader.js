@@ -3,12 +3,11 @@ import {connect} from 'react-redux'
 import {Avatar, Button, Dropdown, Icon, Layout, Menu, message} from 'antd'
 import {Link} from 'react-router-dom'
 import {logoutAction} from '../../actions/userAction'
-import {cleanNotesdAction} from '../../actions/noteAction'
+import {cleanNotesdAction, listNotesAction} from '../../actions/noteAction'
 import Cookie from 'universal-cookie'
 const {Header} = Layout
 
 class TopHeader extends Component {
-
 	handleLogOut = () => {
 		const cookie = new Cookie()
 		cookie.set('userid', null, {
@@ -65,15 +64,12 @@ class TopHeader extends Component {
 					defaultSelectedKeys={['m2']}
 					style={{ lineHeight: '64px' }}
 				>
-					<Menu.Item key="m1"><Link to="/market" >笔记市场</Link></Menu.Item>
-					<Menu.Item key="m2"><Link to="/" >笔记仓库</Link></Menu.Item>
+					<Menu.Item key="m1"><Link to="/market" onClick={() => {this.props.dispatch(listNotesAction)}}>笔记市场</Link></Menu.Item>
+					<Menu.Item key="m2"><Link to="/">笔记仓库</Link></Menu.Item>
 					<Menu.Item key="m3" style={{
 						
 					}}><Link to="/profile" >个人</Link></Menu.Item>
 				</Menu>
-
-
-
 			</Header>
 		)
 	}

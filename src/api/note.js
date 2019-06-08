@@ -1,12 +1,12 @@
 import axios from 'axios'
-
+import {API_URL} from '../constants'
 /**
  * 获取所有笔记
  * @returns {Promise<AxiosPromise>}
  */
 export async function findAll() {
 	return axios({
-		url: 'http://localhost:3030/api/notes',
+		url: `${API_URL}/notes`,
 		method: 'get',
 	});
 }
@@ -18,7 +18,7 @@ export async function findAll() {
  */
 export async function findById(id) {
 	return axios({
-		url: `http://localhost:3030/api/notes/${id}`,
+		url: `${API_URL}/notes/${id}`,
 		method: 'get',
 	});
 }
@@ -30,7 +30,7 @@ export async function findById(id) {
  */
 export async function addOne(note) {
 	return axios({
-		url: 'http://localhost:3030/api/notes',
+		url: `${API_URL}/notes`,
 		method: 'post',
 		data: note
 	});
@@ -43,7 +43,7 @@ export async function addOne(note) {
  */
 export async function findByOwnerId(id) {
 	return axios({
-		url: `http://localhost:3030/api/notes/owner/${id}`,
+		url: `${API_URL}/notes/owner/${id}`,
 		method: 'get'
 	})
 }
@@ -55,7 +55,7 @@ export async function findByOwnerId(id) {
  */
 export async function deleteById(id) {
 	return axios({
-		url: `http://localhost:3030/api/notes/${id}`,
+		url: `${API_URL}/notes/${id}`,
 		method: 'delete',
 		data: {
 			del: true
@@ -70,7 +70,7 @@ export async function deleteById(id) {
  */
 export async function updateText(param) {
 	return axios({
-		url: `http://localhost:3030/api/notes`,
+		url: `${API_URL}/notes`,
 		method: 'patch',
 		data: {
 			id: param.id,

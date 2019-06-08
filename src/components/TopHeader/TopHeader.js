@@ -11,7 +11,9 @@ class TopHeader extends Component {
 
 	handleLogOut = () => {
 		const cookie = new Cookie()
-		cookie.set('userid', null)
+		cookie.set('userid', null, {
+			path: '/'
+		})
 		this.props.dispatch(logoutAction)
 		this.props.dispatch(cleanNotesdAction)
 		message.success('登出成功', 1);
@@ -44,7 +46,7 @@ class TopHeader extends Component {
 						:
 						<div>
 							<Button type={"primary"} >
-								<a href='https://github.com/login/oauth/authorize?client_id=3672b8255f18495d5093' target={''}><Icon type="github" /> 用Gihub登录</a>
+								<a href='https://github.com/login/oauth/authorize?client_id=3672b8255f18495d5093&scope=user' target={''}><Icon type="github" /> 用Gihub登录</a>
 							</Button>
 						</div>}
 				</div>

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {API_URL} from '../constants'
 
 /**
  * 根据id获取用户详情
@@ -6,7 +7,7 @@ import axios from 'axios'
  * @returns {Promise<AxiosPromise>}
  */
 export async function getUserProfileById(id) {
-	return axios(`http://localhost:3030/api/users/${id}`);
+	return axios(`${API_URL}/users/${id}`);
 }
 
 /**
@@ -16,7 +17,7 @@ export async function getUserProfileById(id) {
  */
 export async function updateUserProfile(user) {
 	return axios({
-		url: `http://localhost:3030/api/users/${user._id}`,
+		url: `${API_URL}/users/${user._id}`,
 		method: 'patch',
 		data: user
 	});

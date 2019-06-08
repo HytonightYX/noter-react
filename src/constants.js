@@ -8,3 +8,6 @@ export const CLEAN_USER_NOTES = 'CLEAN_USER_NOTES'
 export const LOG_OUT = 'LOG_OUT'
 export const LOG_IN = 'LOG_IN'
 export const UPDATE_USER = 'UPDATE_USER'
+
+
+export const API_URL = 'http://47.99.215.152:3035/api'

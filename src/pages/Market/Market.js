@@ -3,10 +3,6 @@ import NoteCard from '../../components/NoteCard/NoteCard'
 import {connect} from 'react-redux'
 
 class Market extends Component {
-	constructor(props) {
-		super(props)
-	}
-
 	render() {
 		return (
 			<div className='warp'>

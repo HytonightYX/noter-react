@@ -7,10 +7,6 @@ import AddNoteModal from '../AddNoteModal/AddNoteModal'
 
 const lgImg = require('../../assets/login.jpg')
 class NoteRepo extends Component {
-	constructor(props) {
-		super(props)
-	}
-
 	reRender = () => {
 		this.props.dispatch(listNoteByIdAction(this.props.userReducer.currUser._id))
 		this.props.dispatch(listNotesAction)

@@ -14,15 +14,17 @@ class NoteRepo extends Component {
 
 	render() {
 		return (
-			<div className='warp'>
+			<>
 				{this.props.userReducer.currUser ?
-					<AddNoteModal reRender={this.reRender} />
+					<div className='warp'>
+						<AddNoteModal reRender={this.reRender} />
+						{this.props.noteReducer.usersNoteList.map(item => {
+							return <NoteCard item={item} key={item._id}/>
+						})}
+					</div>
 					:
 					<img src={lgImg} alt=""/>}
-				{this.props.noteReducer.usersNoteList.map(item => {
-					return <NoteCard item={item} key={item._id}/>
-				})}
-			</div>
+			</>
 		)
 	}
 }

@@ -2,6 +2,7 @@ import React from "react"
 import {addOne} from '../../api/note'
 import {Modal, Form, Input, Radio, message} from 'antd'
 import {connect} from 'react-redux'
+import './AddNoteModal.css'
 
 const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
 	class extends React.Component {

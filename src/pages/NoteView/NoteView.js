@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {findById} from '../../api/note'
+import './NoteView.css'
 const ReactMarkdown = require('react-markdown/with-html')
 
 class NoteView extends Component {
@@ -21,10 +22,9 @@ class NoteView extends Component {
 
 	render() {
 		return (
-			<div style={{
-				width: 800,
-				margin: '0 auto'
-			}}>
+			<div
+				className={'markdown-warp'}
+			>
 				<ReactMarkdown
 					source={this.state.markdown}
 					escapeHtml={false}

@@ -3,11 +3,10 @@ import React from "react"
 
 import { Link } from 'react-router-dom'
 import {getUserProfileById} from '../../api/user'
-import './NoteCard.css'
 import {deleteById} from '../../api/note'
 import {listNoteByIdAction, listNotesAction} from '../../actions/noteAction'
 import {connect} from 'react-redux'
-
+import './NoteCard.css'
 const { Meta } = Card;
 
 class NoteCard extends React.Component {
@@ -82,7 +81,8 @@ class NoteCard extends React.Component {
 				style={{
 					minWidth: 300,
 					borderRadius: '10px',
-					margin: '20px 20px'
+					margin: '20px 20px',
+					height: 162
 				}}
 				actions={this.actionList}
 				hoverable={true}

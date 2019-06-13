@@ -56,7 +56,12 @@ class TopHeader extends Component {
 							</div>
 							:
 							<div>
-								<Button type={"primary"} >
+								<Button
+									type={"primary"}
+									style={{
+										marginRight: 10
+									}}
+								>
 									<a href={`https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}&scope=user`} target={''}><Icon type="github" /> 用Gihub登录</a>
 								</Button>
 							</div>}

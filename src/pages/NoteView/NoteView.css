@@ -1,0 +1,12 @@
+.markdown-warp {
+	width: 800px;
+	margin: 0 auto;
+}
+
+
+@media only screen and (max-width: 768px) {
+	.markdown-warp {
+		width: 90%;
+		margin: 0 auto;
+	}
+}

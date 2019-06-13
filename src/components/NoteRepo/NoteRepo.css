@@ -5,26 +5,6 @@
 	flex-wrap: wrap;
 }
 
-.pre-card {
-	width: 300px;
-	height: 140px;
-	margin-right: 20px;
-	margin-left: 10px;
-	padding: 5px;
-	outline:none;
-	color: black;
-	margin-top: 20px;
-	border-radius: 10px;
-	border: 1px dashed #000;
-	color: rgba(0, 0, 0, .65);
-	font-size: 14px;
-	font-variant: tabular-nums;
-	line-height: 1.5;
-	list-style: none;
-	font-feature-settings: 'tnum';
-	transition-duration: 0.4s;
-}
-
 .pre-card:hover {
 	border: 1px dashed #1890ff;
 	color: #1890ff;

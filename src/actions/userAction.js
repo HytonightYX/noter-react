@@ -2,7 +2,7 @@ import { getUserProfileById, updateUserProfile } from '../api/user'
 import {LOG_IN, LOG_OUT, UPDATE_USER} from '../constants'
 
 export const loginAction = (id) => async (dispatch) => {
-	console.log('loginAction')
+	console.log('loginAction' + id)
 	const res = await getUserProfileById(id)
 	console.log(res.data)
 	dispatch({

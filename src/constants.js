@@ -10,4 +10,7 @@ export const LOG_IN = 'LOG_IN'
 export const UPDATE_USER = 'UPDATE_USER'
 
 
-export const API_URL = 'http://47.99.215.152:3035/api'
+// export const API_URL = 'http://47.99.215.152:3035/api'
+export const API_URL = 'http://localhost:3035/api'
+
+export const GITHUB_CLIENT_ID = '3672b8255f18495d5093'

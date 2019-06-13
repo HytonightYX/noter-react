@@ -1,24 +1,30 @@
 import React, {Component} from 'react'
 import {Route} from 'react-router-dom'
 import {connect} from 'react-redux'
+import Mobile from './components/Responsive/Mobile'
+import {Layout, message} from 'antd'
+import Cookies from 'universal-cookie'
 import Repo from './pages/Repo/Repo'
 import Note from './pages/Note/Note'
 import NoteView from './pages/NoteView/NoteView'
-import {Layout, message} from 'antd'
 import Profile from './pages/Profile/Profile'
-import Cookies from 'universal-cookie'
-import {loginAction} from './actions/userAction'
-import TopHeader from './components/TopHeader/TopHeader'
 import Market from './pages/Market/Market'
+import TopHeader from './components/TopHeader/TopHeader'
+import {loginAction} from './actions/userAction'
 import {listNoteByIdAction, listNotesAction} from './actions/noteAction'
+import './App.css'
+import BottomNav from './components/BottomNav/BottomNav'
+import Affix from 'antd/lib/affix'
 
 const {Content, Footer} = Layout
 
 class App extends Component {
+
 	componentWillMount() {
 		const cookies = new Cookies()
 		const id = cookies.get('userid')
 		if (id && id !== 'null') {
+			console.log(id)
 			message.success('登录成功')
 			this.props.dispatch(loginAction(id))
 			this.props.dispatch(listNoteByIdAction(id))
@@ -32,13 +38,8 @@ class App extends Component {
 				<Layout>
 					<TopHeader/>
 
-					<Content style={{padding: '0 50px', marginTop: 30}}>
-						<div style={{
-							background: '#fff',
-							padding: 24,
-							minHeight: '670px',
-							borderRadius: '10px'
-						}}>
+					<Content className={'content'}>
+						<div className={'warp'}>
 							<Route exact path={'/'} component={Repo}/>
 							<Route exact path={'/market'} component={Market}/>
 							<Route exact path={'/note/:id/edit'} component={Note}/>
@@ -52,6 +53,11 @@ class App extends Component {
 						<a href="https://github.com/HytonightYX">HytonightYX</a>
 					</Footer>
 
+					<Mobile>
+						<Affix offsetBottom={0}>
+							<BottomNav/>
+						</Affix>
+					</Mobile>
 				</Layout>
 			</div>
 		)

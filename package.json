@@ -6,7 +6,7 @@
     "@uiw/react-markdown-editor": "^1.1.8",
     "antd": "^3.16.5",
     "auth0-js": "^9.10.4",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "babel-plugin-import": "^1.11.0",
     "customize-cra": "^0.2.12",
     "enquire-js": "^0.2.1",

@@ -14,7 +14,7 @@
     "history": "latest",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
-    "markdown-it": "^8.4.2",
+    "markdown-it": "^12.3.2",
     "markdown-it-react-component": "^0.4.1-rc.5",
     "rc-scroll-anim": "^2.5.7",
     "rc-tween-one": "^2.4.1",
